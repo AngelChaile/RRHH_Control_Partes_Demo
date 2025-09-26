@@ -14,7 +14,7 @@ const HistoricalReports = () => {
   const loadHistoricalReports = async () => {
     try {
       const querySnapshot = await getDocs(
-        query(collection(db, "monthly_reports"), orderBy("timestamp", "desc"))
+        query(collection(db, "monthly_reports_demo"), orderBy("timestamp", "desc"))
       );
       
       const reportsData = querySnapshot.docs.map(doc => ({ 
@@ -181,7 +181,7 @@ const HistoricalReports = () => {
                       <div>
                         <strong style={{ color: '#1f2937' }}>{area.nombre}</strong>
                         <div style={{ color: '#6b7280', fontSize: '0.8rem', marginTop: '2px' }}>
-                          Código: {area.cod}
+                          Secretaría: {area.padre}
                         </div>
                       </div>
                       <span style={{
