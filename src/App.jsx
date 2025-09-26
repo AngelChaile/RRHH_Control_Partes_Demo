@@ -110,7 +110,7 @@ export default function App() {
       }));
       await batch.commit();
 
-      window.Swal.fire('¡Éxito!', 'Las marcas se vaciaron correctamente', 'success');
+      window.Swal.fire('¡Listo!', 'Las marcas se vaciaron correctamente', 'success');
     } catch (e) {
       console.error(e);
       window.Swal.fire('Error', 'Error al vaciar. Revisa permisos.', 'error');
@@ -125,12 +125,13 @@ export default function App() {
     const excelData = areas.map(area => ({
       'Código': area.cod,
       'Área': area.nombre,
+      'Secretaría': area.padre,
       'Estado': area.recibido ? 'RECIBIDO' : 'PENDIENTE',
       'Última Actualización': area.updatedAt ? 
         (area.updatedAt.seconds ? 
           new Date(area.updatedAt.seconds * 1000).toLocaleString() : 
-          new Date(area.updatedAt).toLocaleString()) : 'NUNCA',
-      'Actualizado Por': area.updatedBy || 'NO REGISTRADO'
+          new Date(area.updatedAt).toLocaleString()) : 'No registrado',
+      /* 'Actualizado Por': area.updatedBy || 'NO REGISTRADO' */
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(excelData);
@@ -165,6 +166,7 @@ export default function App() {
         areasPendientes: areasPendientes.map(area => ({
           cod: area.cod,
           nombre: area.nombre,
+          padre: area.padre,
           updatedBy: area.updatedBy || 'Nunca actualizado'
         }))
       });
