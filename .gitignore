@@ -1,0 +1,25 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Producción
+dist/
+build/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env*
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Scripts y Excel de carga masiva
+/scripts/areas.xlsx
+/scripts/importExcel.js
