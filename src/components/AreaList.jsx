@@ -1,4 +1,5 @@
 import React from "react";
+import { formatTitleCase, formatPersonName } from "../utils/formatters";
 
 export default function AreaList({ areas, onToggle }) {
   if (areas.length === 0) {
@@ -30,7 +31,7 @@ export default function AreaList({ areas, onToggle }) {
                     {area.nombre}
                   </div>
                   {<div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: '4px' }}>
-                     {area.padre }
+                     {area.padre ? formatTitleCase(area.padre) : 'Sin área padre'}
                   </div>}
                 </div>
               </td>

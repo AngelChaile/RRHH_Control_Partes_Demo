@@ -9,9 +9,9 @@ import Dashboard from "./components/Dashboard";
 import HistoricalReports from "./components/HistoricalReports";
 
 // 🔥 Detectar modo demo automáticamente
-const isDemoMode = window.location.hostname.includes('vercel.app') || 
-                   window.location.hostname.includes('github.io') ||
-                   import.meta.env.VITE_DEMO_MODE === 'true';
+const isDemoMode = window.location.hostname.includes('vercel.app') ||
+  window.location.hostname.includes('github.io') ||
+  import.meta.env.VITE_DEMO_MODE === 'true';
 
 // 📁 Colecciones separadas para demo/producción
 const getAreasCollection = () => isDemoMode ? 'areas_demo' : 'areas';
@@ -50,17 +50,17 @@ export default function App() {
 
   const applyFilters = (areasList, searchFilter, statusFilter) => {
     let result = areasList.filter((a) => {
-      if (searchFilter && !(a.nombre || "").toLowerCase().includes(searchFilter.toLowerCase()) && 
-          !(a.cod || "").includes(searchFilter)) {
+      if (searchFilter && !(a.nombre || "").toLowerCase().includes(searchFilter.toLowerCase()) &&
+        !(a.cod || "").includes(searchFilter)) {
         return false;
       }
-      
+
       if (statusFilter === "recibidos") return a.recibido;
       if (statusFilter === "pendientes") return !a.recibido;
-      
+
       return true;
     });
-    
+
     setFilteredAreas(result);
   };
 
@@ -127,9 +127,9 @@ export default function App() {
       'Área': area.nombre,
       'Secretaría': area.padre,
       'Estado': area.recibido ? 'RECIBIDO' : 'PENDIENTE',
-      'Última Actualización': area.updatedAt ? 
-        (area.updatedAt.seconds ? 
-          new Date(area.updatedAt.seconds * 1000).toLocaleString() : 
+      'Última Actualización': area.updatedAt ?
+        (area.updatedAt.seconds ?
+          new Date(area.updatedAt.seconds * 1000).toLocaleString() :
           new Date(area.updatedAt).toLocaleString()) : 'No registrado',
       /* 'Actualizado Por': area.updatedBy || 'NO REGISTRADO' */
     }));
@@ -180,10 +180,11 @@ export default function App() {
     setShowHistoricalReports(!showHistoricalReports);
   };
 
+
   return (
     <div className="container">
-      <Dashboard 
-        areas={areas} 
+      <Dashboard
+        areas={areas}
         activeFilter={activeFilter}
         onFilterClick={handleFilterClick}
       />
@@ -195,10 +196,10 @@ export default function App() {
             <p className="subtitle">Municipalidad - Gestión de áreas</p>
           </div>
           <div>
-            <img 
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPJr_bVmuAmS0y6JzVvkJfgVH1zMwgzjkuA0OsIxpTfolLPPOHX1diGdukqjOGrmuum8c&usqp=CAU" 
-              alt="Logo Municipio" 
-              className="logo" 
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPJr_bVmuAmS0y6JzVvkJfgVH1zMwgzjkuA0OsIxpTfolLPPOHX1diGdukqjOGrmuum8c&usqp=CAU"
+              alt="Logo Municipio"
+              className="logo"
             />
           </div>
         </div>
@@ -242,7 +243,7 @@ export default function App() {
         <div className="filter-indicator">
           <span>
             Mostrando {activeFilter === "recibidos" ? "áreas recibidas" : "áreas pendientes"}
-            <button 
+            <button
               onClick={() => setActiveFilter("all")}
               className="clear-filter"
             >
