@@ -181,7 +181,7 @@ const HistoricalReports = () => {
                       <div>
                         <strong style={{ color: '#1f2937' }}>{area.nombre}</strong>
                         <div style={{ color: '#6b7280', fontSize: '0.8rem', marginTop: '2px' }}>
-                          Secretaría: {area.padre}
+                          {area.padre}
                         </div>
                       </div>
                       <span style={{
