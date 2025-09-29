@@ -31,16 +31,16 @@ export default function AreaList({ areas, onToggle }) {
                     {area.nombre}
                   </div>
                   {<div style={{ fontSize: '0.8rem', color: '#6b7280', marginTop: '4px' }}>
-                     {area.padre ? formatTitleCase(area.padre) : 'Sin área padre'}
+                    {area.padre ? formatTitleCase(area.padre) : 'Sin área padre'}
                   </div>}
                 </div>
               </td>
               <td>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <input 
-                    type="checkbox" 
-                    checked={!!area.recibido} 
-                    onChange={() => onToggle(area)} 
+                  <input
+                    type="checkbox"
+                    checked={!!area.recibido}
+                    onChange={() => onToggle(area)}
                   />
                   <span className={`status-badge ${area.recibido ? 'recibido' : 'pendiente'}`}>
                     {area.recibido ? 'Recibido' : 'Pendiente'}
@@ -50,8 +50,8 @@ export default function AreaList({ areas, onToggle }) {
               <td>
                 <div>
                   {area.updatedAt ? (
-                    area.updatedAt.seconds ? 
-                      new Date(area.updatedAt.seconds * 1000).toLocaleString() : 
+                    area.updatedAt.seconds ?
+                      new Date(area.updatedAt.seconds * 1000).toLocaleString() :
                       new Date(area.updatedAt).toLocaleString()
                   ) : "—"}
                 </div>

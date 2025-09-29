@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import { formatTitleCase, formatPersonName } from "../utils/formatters";
 
 const HistoricalReports = () => {
   const [reports, setReports] = useState([]);
