@@ -196,7 +196,7 @@ export default function App() {
           </div>
           <div>
             <img 
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcrks58z3KijKWqU4ejPd-P5CvEItOiiPPWg&s" 
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPJr_bVmuAmS0y6JzVvkJfgVH1zMwgzjkuA0OsIxpTfolLPPOHX1diGdukqjOGrmuum8c&usqp=CAU" 
               alt="Logo Municipio" 
               className="logo" 
             />
